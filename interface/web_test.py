@@ -1,6 +1,7 @@
 import tornado.ioloop
 import tornado.web
-
+import sys
+sys.path.append('../trainer')
 from trainer import Trainer
 
 
