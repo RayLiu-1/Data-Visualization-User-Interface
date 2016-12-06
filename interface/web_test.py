@@ -7,7 +7,7 @@ from trainer import Trainer
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        self.render("index_network.html")
 
 class DataHandler(tornado.web.RequestHandler):
     def initialize(self, trainer):
