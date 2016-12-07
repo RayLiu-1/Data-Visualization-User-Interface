@@ -67,14 +67,15 @@ nav ul a {
         xhr.send();
     }
     function loadfunction() {
-        loadJSON('/questions/0000000000', setvar, function (err) { console.log('error') });
+        //loadJSON('/questions/0000000000', setvar, function (err) { console.log('error') });
         loadJSON('/data/0000000000', draw, function (err) { console.log('error') });
     }
+    var NetInfo;
     function draw(gephiJSON) {
-        
+        setvar(gephiJSON)
         
         console.log(gephiJSON);
-        var data = Lazy(gephiJSON).pick([target])[0];
+        var data = Lazy(gephiJSON.netInfo).pick([target])[0];
         var container = document.getElementById('mynetwork');
         var options = {
             nodes: {
@@ -87,6 +88,7 @@ nav ul a {
         question = gephiJSON.question;
         answer = gephiJSON.answer;
         target = gephiJSON.target;
+        NetInfo = gephiJSON.netInfo;
     }
     </script>
     <script src="http://visjs.org/examples/googleAnalytics.js"></script>
@@ -125,7 +127,7 @@ nav ul a {
                     return Lazy(Lazy(answer).map(getcheck)).reduce(strsum)
                 }
                 function choseNet(e) {
-                    var data = Lazy(gData).pick([e])[0];
+                    var data = Lazy(NetInfo).pick([e])[0];
                     var container = document.getElementById('mynetwork');
                     var options = {
                         nodes: {
@@ -135,8 +137,9 @@ nav ul a {
                     network = new vis.Network(container, data, options);
                 }
                 function clickhandler() {
-                    loadJSON('/questions/<'+check()+'>', setvar, function (err) { console.log('error') });
-                    loadJSON('/data/<'+check()+'>', store, function (err) { console.log('error') });
+                    //loadJSON('/questions/<'+check()+'>', setvar, function (err) { console.log('error') });
+                    loadJSON('/data/<' + check() + '>', draw, function (err) { console.log('error') });
+      
                     document.getElementById("question").innerHTML = question;
                     Lazy(answer).map(setanwser);
                     loadfunction();
