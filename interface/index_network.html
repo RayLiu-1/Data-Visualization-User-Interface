@@ -44,8 +44,26 @@ nav ul a {
     var nodes = null;
     var edges = null;
     var network = null;
-
-    function draw() {
+    function loadJSON(path, draw, error) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    success(JSON.parse(xhr.responseText));
+                }
+                else {
+                    error(xhr);
+                }
+            }
+        };
+        xhr.open('GET', path, true);
+        xhr.send();
+    }
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    function draw(gephiJSON) {
           // create people.
       // value corresponds with the age of the person
       // create connections between people
@@ -53,23 +71,26 @@ nav ul a {
       //loadJSON('/data');
 
       // Instantiate our network object.
-      var container = document.getElementById('mynetwork');
-      var data = {
-        nodes: nodes,
-        edges: edges
-      };
-      var options = {
-        nodes: {
-          shape: 'dot',
-        }
-      };
-      network = new vis.Network(container, data, options);
-    }
+        var container = document.getElementById('mynetwork');
+        var parsed = vis.network.gephiParser.parseGephi(gephiJSON, {
+            fixed: fixed,
+            parseColor: parseColor
+        });
+        nodes = parsed.nodes;
+        edges = parsed.edges;
+        var options = {
+            nodes: {
+            shape: 'dot',
+            }
+         };
+        network = new vis.Network(container, data, options);
+    }      
+
     </script>
     <script src="http://visjs.org/examples/googleAnalytics.js"></script>
 
 </head>
-<body  onload="draw()">
+<body  onload="loadJSON('/data',draw , function(err) {console.log('error')});">
 
     <div class="container">
 
