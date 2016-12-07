@@ -7,7 +7,7 @@ sys.path.append('../trainer')
 from trainer import Trainer
 app = Flask(__name__,static_url_path='')
 
-
+new_trainer = Trainer()
 @app.route('/')
 def index():
     return render_template('index_network.html')
@@ -41,14 +41,10 @@ data1 = {
       ]
   }
 
+
 @app.route('/data/<pere>')
 def get_data(pere):
-    return json.dumps(data1)
-
-@app.route('/questions/<pere>')
-def get_question(pere):
-    return "0"
-
+    return json.dumps(new_trainer.get_data(1))
 
 @app.route('/lazy.js')
 def get_path():
@@ -56,4 +52,4 @@ def get_path():
 
 
 if __name__ == '__main__':
-      app.run(port=8888)
+      app.run(port=9998)
