@@ -52,4 +52,9 @@ def get_path():
 
 
 if __name__ == '__main__':
-      app.run(port=9998)
+    if len(sys.argv) > 1:
+        port = sys.argv[1]
+    else:
+        port = 8888
+    print port
+    app.run(port=port)
