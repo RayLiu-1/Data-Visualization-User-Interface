@@ -1,7 +1,7 @@
 import pickle
 
-queries_file = "/home/fenfei/Projects/data/se07_lexsub_test_queries_10.pkl"
-net_file = "/home/fenfei/Projects/data/se07_lexsub_test_net_info_10.pkl"
+queries_file = "/home/fenfei/Projects/data/se07_lexsub_test_queries_n15_10.pkl"
+net_file = "/home/fenfei/Projects/data/se07_lexsub_test_net_info_n15_10.pkl"
 class Trainer(object):
     def __init__(self,):
         self.queries = pickle.load(open(queries_file, 'rb'))
