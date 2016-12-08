@@ -91,12 +91,10 @@ nav ul a {
         document.getElementById("question").innerHTML = question;
         function setanwser(e) {
             return "<input type=\"checkbox\" id =\"" + e + "\"> <x onclick = \"choseNet(\'" + e + "\')\">" + e + "</x><br>"
-            //document.getElementById(e).innerHTML = "<input type=\"checkbox\" id =\"" + e + "\" onclick = \"choseNet(\'" + e + "\')><U>" + e + "</U><br>"
         }
         function strcat(x, y) {return x+y;}
         var as = (Lazy(answer).map(setanwser)).reduce(strcat)
-        console.log(as)
-        document.getElementById("answer").innerHTML = as
+        document.getElementById("answer").innerHTML = (Lazy(answer).map(setanwser)).reduce(strcat)
         }
 
     </script>
