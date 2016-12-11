@@ -16,7 +16,7 @@ def to_id(x):
     a = 0
     for i in xrange(len(x)):
         if x[i]:
-            a += 1
+            a += i
     return a
 
 @app.route('/data/<string:pere>')
