@@ -20,7 +20,7 @@
 %-----------------------------------------------------------------------------
 
 
-\documentclass[preprint]{sigplanconf}
+\documentclass[]{sigplanconf}
 
 % The following \documentclass options may be useful:
 
@@ -30,6 +30,7 @@
 % numbers       To obtain numeric citation style instead of author/year.
 
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \newcommand{\cL}{{\cal L}}
 
@@ -40,9 +41,9 @@
 \setlength{\pdfpagewidth}{\paperwidth}
 
 \conferenceinfo{CONF 'yy}{Month d--d, 20yy, City, ST, Country}
-\copyrightyear{20yy}
-\copyrightdata{978-1-nnnn-nnnn-n/yy/mm}
-\copyrightdoi{nnnnnnn.nnnnnnn}
+%\copyrightyear{20yy}
+%\copyrightdata{978-1-nnnn-nnnn-n/yy/mm}
+%\copyrightdoi{nnnnnnn.nnnnnnn}
 
 % Uncomment the publication rights you want to use.
 %\publicationrights{transferred}
@@ -65,23 +66,22 @@
 \maketitle
 
 \begin{abstract}
-This is the text of the abstract.
+In this project we implement a Graphical User Interface to interactively visualize the word co-occurrence network using Functional Reactive Programming language. We first learn the definition of Functional Reactive Programming and the essential idea of this programming paradigm; then we learn in practice by designing a suitable application and implementing it with Javascript in a functional programming style. The interface supports the functions of visualizing user selected networks and passing user feedbacks to back-end programs. 
 \end{abstract}
 
-\category{CR-number}{subcategory}{third-level}
-
-% general terms are not compulsory anymore,
-% you may leave them out
-\terms
-term1, term2
 
 \keywords
-keyword1, keyword2
+Functional Reactive Programming, Javascript, Graphical User Interface, Network Visualization
 
 
 \input{sections/intro}
 
+
+
 \input{sections/background}
+
+
+
 
 \input{sections/app}
 
