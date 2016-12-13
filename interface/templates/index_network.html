@@ -10,7 +10,7 @@ div.container {
 header {
     padding: 1em;
     color: white;
-    background-color: black;
+    background-color: #005c99;
     clear: left;
     text-align: center;
 }
@@ -74,8 +74,7 @@ nav ul a {
     function draw(gephiJSON) {
         setvar(gephiJSON)
         
-        console.log(gephiJSON);
-        var data = Lazy(gephiJSON.netInfo).pick([target])[0];
+        var data = Lazy(gephiJSON.netInfo).get(gephiJSON.target);
         var container = document.getElementById('mynetwork');
         var options = {
             nodes: {
@@ -89,7 +88,15 @@ nav ul a {
         answer = gephiJSON.answer;
         target = gephiJSON.target;
         NetInfo = gephiJSON.netInfo;
-    }
+        document.getElementById("question").innerHTML = question;
+        function setanwser(e) {
+            return "<input type=\"checkbox\" id =\"" + e + "\"> <x onclick = \"choseNet(\'" + e + "\')\">" + e + "</x><br>"
+        }
+        function strcat(x, y) {return x+y;}
+        var as = (Lazy(answer).map(setanwser)).reduce(strcat)
+        document.getElementById("answer").innerHTML = (Lazy(answer).map(setanwser)).reduce(strcat)
+        }
+
     </script>
     <script src="http://visjs.org/examples/googleAnalytics.js"></script>
 
@@ -99,35 +106,43 @@ nav ul a {
     <div class="container">
 
         <header>
-            <h1>City Gallery</h1>
+            <h1>Word Net</h1>
         </header>
 
         <nav>
-            <p onclick="defaultNet()" id="question"> </p>
+            
             <script>
-                document.getElementById("question").innerHTML = "<U>"+question+"</U>";
+                //document.getElementById("question").innerHTML = question;
             </script>
-            <form id="answers">
+            <p onclick="defaultNet()" id="question"> </p>
+            <form id="answer">
             </form>
-            <button id="submit" onclick="clickhandler()">Go</button>
+            <br>
+            <button id="submit" onclick="clickhandler()">Submit</button>
             <script>
-                function setanwser(e, i) {
-                    document.getElementById(e).innerHTML = "<input type=\"checkbox\" id =\"" + e + "\" onclick = \"choseNet(\'" + e + "\')><U>" + e + "</U><br>"
-                }
-                Lazy(answer).map(setanwser)
+                                //Lazy(answer).map(setanwser)
                 function checkbox() {
-                    var checkboxes = Lazy.repeat("checkbox", 10)
                     function getcheck(e) {
                         if( document.getElementById(e).checked == true)
                             return "1"
                         else return "0"
                     }
-                    function strsum(x, y) { return x + y;}
+                    function strcat(x, y) { return x + " " +  y;}
                     
-                    return Lazy(Lazy(answer).map(getcheck)).reduce(strsum)
+                    return Lazy(Lazy(answer).map(getcheck)).reduce(strcat)
+                }
+                function defaultNet() {
+                    var data = Lazy(NetInfo).get(target);
+                    var container = document.getElementById('mynetwork');
+                    var options = {
+                        nodes: {
+                            shape: 'dot',
+                        }
+                    };
+                    network = new vis.Network(container, data, options);
                 }
                 function choseNet(e) {
-                    var data = Lazy(NetInfo).pick([e])[0];
+                    var data = Lazy(NetInfo).get(e);
                     var container = document.getElementById('mynetwork');
                     var options = {
                         nodes: {
@@ -138,7 +153,7 @@ nav ul a {
                 }
                 function clickhandler() {
                     //loadJSON('/questions/<'+check()+'>', setvar, function (err) { console.log('error') });
-                    loadJSON('/data/<' + check() + '>', draw, function (err) { console.log('error') });
+                    loadJSON('/data/' + checkbox(), draw, function (err) { console.log('error') });
       
                     document.getElementById("question").innerHTML = question;
                     Lazy(answer).map(setanwser);

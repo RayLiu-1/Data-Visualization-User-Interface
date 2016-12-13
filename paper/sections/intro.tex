@@ -1,0 +1,40 @@
+\section{Introduction}
+\label{sec:intro}
+
+ In class, we've learned the basic usage of \texttt{ Ocaml} and the functional programming paradigm. This paradigm has lots of advantages and has many deviations while being applied in the real word applications. One of the major deviations that benefits from the functional programming paradigm is the  Functional Reactive Programming (FRP) paradigm that provides an elegant way to express computation in domains such as interactive animations, robotics, computer vision, user interfaces, and simulations, etc.
+
+In  this project we implement a Graphical User Interface to interactively visualize the word co-occurrence network using Javascript and follow the FRP paradigm. The primary goal of this project is to learn what is Functional Reactive Programming, and what is the benefit of this programming paradigm by implementing a simple application.
+
+Graphical User Interface design and implementation is a technique that is so widely used that we benefit from it everyday while using computers. Therefore we decide to implement an user interface using one of the most popular language that supports at the same time object-oriented, imperative, and functional programming styles, i.e., Javascript.
+
+Data science has gained lots attentions in recent years and has achieved success in many real word applications. The data science is not a closed black-box that we just need to through data into it and wait for a golden solution. To develop better techniques for making predictions and to include human in the decision loop, we need to analyze the data itself. Besides of the statistics tools and algorithmic  analysis, it is often very useful to have a visualization of the data so that we can capture intuitively the intrinsic nature of the data.
+
+Therefore, we decide to implement a Graphical User Interface for interactively visualizing data. The specific application is rooted from one of my own research project.  I'm working on word related tasks such as lexical substitution where the model should provide substitutes for a target in a given sentences, such as "I ate an \underline{apple} this morning". We'd like to gain user feedbacks about the model selections. It would be useful if the user can gain more information about the target words and model selections, which could be the co-occurrence network of a certain word in training corpus.
+
+The major technical problems we need to solve in this project includes:
+
+\begin{itemize}
+	\item Find a framework and visualize the networks in user interface.
+	\item Exchange data between the front-end interface and the back-end programs (substitution model).
+	\item Build an interface so that it can properly show information to the user and collect user feedbacks.
+\end{itemize}
+
+
+Our project is thus can be divided into the following steps:
+
+\begin{enumerate}
+	\item Learn about FRP and FRP languages.
+	\item Application Design.
+	\begin{enumerate}
+		\item Interface function design
+		\item Interface design
+		\item Pipeline design
+	\end{enumerate}
+	\item Implementation
+	\begin{enumerate}
+		\item Back-end and web sever
+		\item Front-end
+	\end{enumerate}
+\end{enumerate}
+
+In the report, we first explain the definition and properties of Functional Reactive Programming paradigm in Section \ref{sec:back} \textit{Background Knowledge}; then briefly describe the pipeline of our application and the design of each part in Section \ref{sec:app} \textit{Application Design}.  In Section \ref{sec:impl}, we describe the implementation details along with the demonstration of our interface. We then conclude our work and what we learned in Section \ref{sec:conc}.

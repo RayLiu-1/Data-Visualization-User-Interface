@@ -1,0 +1,121 @@
+%-----------------------------------------------------------------------------
+%
+%               Template for sigplanconf LaTeX Class
+%
+% Name:         sigplanconf-template.tex
+%
+% Purpose:      A template for sigplanconf.cls, which is a LaTeX 2e class
+%               file for SIGPLAN conference proceedings.
+%
+% Guide:        Refer to "Author's Guide to the ACM SIGPLAN Class,"
+%               sigplanconf-guide.pdf
+%
+% Author:       Paul C. Anagnostopoulos
+%               Windfall Software
+%               978 371-2316
+%               paul@windfall.com
+%
+% Created:      15 February 2005
+%
+%-----------------------------------------------------------------------------
+
+
+\documentclass[]{sigplanconf}
+
+% The following \documentclass options may be useful:
+
+% preprint      Remove this option only once the paper is in final form.
+% 10pt          To set in 10-point type instead of 9-point.
+% 11pt          To set in 11-point type instead of 9-point.
+% numbers       To obtain numeric citation style instead of author/year.
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\newcommand{\cL}{{\cal L}}
+
+\begin{document}
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\conferenceinfo{CONF 'yy}{Month d--d, 20yy, City, ST, Country}
+%\copyrightyear{20yy}
+%\copyrightdata{978-1-nnnn-nnnn-n/yy/mm}
+%\copyrightdoi{nnnnnnn.nnnnnnn}
+
+% Uncomment the publication rights you want to use.
+%\publicationrights{transferred}
+%\publicationrights{licensed}     % this is the default
+%\publicationrights{author-pays}
+
+%\titlebanner{banner above paper title}        % These are ignored unless
+\preprintfooter{short description of paper}   % 'preprint' option specified.
+
+\title{Interactive Word Network Visualization based on Functional Reactive Programming}
+%\subtitle{Subtitle Text, if any}
+
+\authorinfo{Fenfei Guo}
+           {University of Colorado Boulder}
+           {fenfei.guo@colorado.edu}
+\authorinfo{Rui Liu}
+           {University of Colorado Boulder}
+           {rui.liu-1@colorado.edu}
+
+\maketitle
+
+\begin{abstract}
+In this project we implement a Graphical User Interface to interactively visualize the word co-occurrence network using Functional Reactive Programming language. We first learn the definition of Functional Reactive Programming and the essential idea of this programming paradigm; then we learn in practice by designing a suitable application and implementing it with Javascript in a functional programming style. The interface supports the functions of visualizing user selected networks and passing user feedbacks to back-end programs. 
+\end{abstract}
+
+
+\keywords
+Functional Reactive Programming, Javascript, Graphical User Interface, Network Visualization
+
+
+\input{sections/intro}
+
+
+
+\input{sections/background}
+
+
+
+
+\input{sections/app}
+
+\input{sections/imp}
+
+\input{sections/conc}
+
+
+% We recommend abbrvnat bibliography style.
+
+\bibliographystyle{abbrvnat}
+
+% The bibliography should be embedded for final submission.
+
+\begin{thebibliography}{}
+\softraggedright
+
+\bibitem[Smith et~al.(2009)Smith, Jones]{smith02}
+P. Q. Smith, and X. Y. Jones. ...reference text...
+
+
+\bibitem{JS11} 
+Flanagan, David. 
+\textit{JavaScript: The Definitive Guide (6th ed.)  }O'Reilly & Associates.
+ 2011.
+ 
+ 
+\bibitem[ David Anthony Watt; William Findlay (2004)]{pldc10} 
+David Anthony Watt; William Findlay
+
+[\textit{Programming language design concepts}]. 
+John Wiley and Sons, pp.367-368,  ISBN 978-0-470-85320-7.
+
+\end{thebibliography}
+
+
+\end{document}
