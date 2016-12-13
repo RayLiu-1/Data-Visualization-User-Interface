@@ -1,2 +1,17 @@
 \section{Conclusion}
 \label{sec:conc}
+In this project,we build back-end and web server by python. We implemented data training algorithem in back-end program and build the server with flask. What's more, the front-end is build in functional reactive programming paradigm. We learned something that is very new to us. Due to the time limitation, our programs is simple and with limit functions. However, we believe that we learned a lot of new technologies that is very useful.
+\subsection{User Interface}
+
+This project is the first time to develop an User Interface program for both of us. It is a valuable experience for us. Comparing with other types of projects, User Interface not only need implement correct logic funtion, but also think about how to make the interface beautiful and humane. Due to the time limitation, we learned about how to construct web page by CSS and HTML. However, we found that the time is not enough for us when we feel we can handle CSS and HTML.
+
+\subsection{Reactive Programming}
+
+We parsed the data stream that thenetwork information, the questions and answers, and the feedbacks from the user. We use JavaScript to implement reactive paradigm. First, the User Interface JavaScript pragram parsed the input data into an JSON object. Second, the feedbacks from the user are encapsulated into a string and are passed to server.
+
+\subsection{Functional Programming}
+
+We use Lazy.js to program JavaScript in functional programming style. This is also the first time that we develop a project by functional programming. We have a deeper understanding on functional programming after this project. For example, we have discuss the recursion expression in Language T. The reduce method of Lazy.js is similar with recursion. What's more, we learned that functional programming  languages use side effect free functions as a basic building block. This makes the program thread safety, easy to re-purpose and enable concurrency. Program that functionally programmed is easier to trace, debug and test. However, the lack of side effects make IO hard to implement. Thus, we also use some nonfunctional feature in our project. In this project, we use functional programming code to process the data and use nonfunctional programming code to parsed the input data and show the computing results in HTML.
+\subsubsection{Lazy Evaluation}
+
+Lazy evaluation is an evaluation strategy which delays the evaluation of an expression until its value is needed and also avoids repeated evaluations.\cite{pldc10} Lazy.js support reactive programming by Lazy evaluaton. What's more Lazy evaluation make the program lighter: the program will run without pre-process that it improve the performanve by avoiding needless calculations, and error conditions in evaluating compound expressions. This project help us understand Lazy evaluation deeply. We believe that it will be used in our future data process study.
